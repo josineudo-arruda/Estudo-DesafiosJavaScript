@@ -64,6 +64,7 @@
             if(aluno) {
                 alert(`Nome: ${aluno.nome}\nNota 1: ${aluno.nota} \nNota 2: ${aluno.nota2}\nMédia:  ${aluno.media}\nSituação: ${aluno.situacao}`);
             }
+            inicio();
         }
 
         function listarAlunos() {
@@ -71,6 +72,7 @@
             for (let i = 0; i < alunos.length; i++) {
                 mensaegem +=  `Nome: ${alunos[i].nome}\nMédia:  ${alunos[i].media}\nSituação: ${alunos[i].situacao}\n`
             }
+            inicio();
         }
 
 
