@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Notas</title>
+    <script>
+        /*
+            a) Cadastrar os 20 registros (após o cadastro efetuar a classificação por nome).
+            b) Pesquisar os 20 registros, de cada vez, pelo campo nome. Nesta pesquisa o programa deverá também apresentar a média do aluno e as mensagens: “Aprovado” caso sua média seja maior ou igual a 5, ou “Reprovado” para média abaixo de 5.
+            c) Apresentar todos os registros, médias e a mensagem de aprovação ou reprovação.
+            d) Sair do programa de cadastro.
+        */
+
+        function inicio() {
+            var escolha = parseInt(prompt("SISTEMA DE NOTAS\n 1) Cadastro de Alunos\n 2) Pesquisar Alunos 3) Listar Alunos 4) Sair"));
+
+            switch(escolha) {
+                case 1: cadastrarAluno(); break;
+                case 2: pesquisarAluno(); break;
+                case 3: listarAlunos(); break;
+                case 4: alert("Obrigado por utilizar o sistema de notas!"); break;
+
+
+
+            }
+        }
+
+        function cadastrarAluno() {
+
+        }
+
+        function pesquisarAluno() {
+
+        }
+
+        function sair() {
+            var  resposta = confirm("Deseja sair do sistema de notas?");
+            if (resposta) {
+                window.close();
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
