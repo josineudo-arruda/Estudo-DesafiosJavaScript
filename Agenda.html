@@ -13,7 +13,7 @@
 // c) Classificar por ordem de nome os registros cadastrados.
 // d) Apresentar todos os registros.
 // e) Sair do programa de cadastro.
-            var escolha = parseInt(prompt("AGENDA\n1) Cadastro\n2) Pesquisar\n3)  Classificar\n4) Listar\n5) Sair"));
+            var escolha = parseInt(prompt("AGENDA\n1) Cadastro\n2) Pesquisar\n3) Classificar\n4) Listar\n5) Sair"));
 
             switch(escolha) {
                 case 1: cadastro(); break;
@@ -27,7 +27,7 @@
         }
 
         function pesquisar() {
-            var opcao = parseInt(prompt("Escollha sua opção:\n1)  Pesquisar por nome\n2) Pesquisar por telefone \n3) Voltar"));
+            var opcao = parseInt(prompt("Escollha sua opção:\n1) Pesquisar por nome\n2) Pesquisar por telefone \n3) Voltar"));
 
             switch(opcao) {
                 case 1: 
@@ -67,7 +67,7 @@
 
         function classificar() {
             contatos.sort((a, b) => a.nome.localeCompare(b.nome));
-            alert("Contatos classificados por nome");
+            alert("LISTA DE CONTATOS REORGANIZADA");
             var mensaegem = 'LISTA CONTATOS:\n'
             for(let i = 0; i < contatos.length; i++) {
                 mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + "\nTelefone:  " + contatos[i].telefone + "\n";
@@ -78,13 +78,12 @@
         }
 
         function listar() {
-            alert("Contatos classificados por nome");
             var mensaegem = 'LISTA CONTATOS:\n'
             for(let i = 0; i < contatos.length; i++) {
                 mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + "\nTelefone:  " + contatos[i].telefone + "\n";
             }
             alert(mensaegem);
-            
+
             inicio();
         }
 
