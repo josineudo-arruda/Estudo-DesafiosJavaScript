@@ -41,37 +41,39 @@
             var numCadastros = parseInt(prompt("Insira a quantidade de cadastros:")); 
             if(numCadastros <= 0 || isNaN(numCadastros)) {
                 alert("ERRO: Integer incorreto, tente novamente.");
-                cadastro();
+                inicio();
             }
 
             for(let i = 0; i < numCadastros; i++) {
                 var nome  = prompt("Digite o nome: ");
                 var altura =  parseFloat(prompt("Digite sua altura: "));
 
-                if(nome && isNaN(altura) || altura <= 0) {
-
-                    var cadastro = {nome:nome,altura:altura};
-                    cadastrados.push(cadastro);
-                } else {
+                if(altura <= 0) {
                     alert("ERRO: String incorreto, tente novamente.");
                     i--;
+                } else {
+                    var cadastro = {nome:nome,altura:altura};
+                    cadastrados.push(cadastro);
                 }
             }
             inicio();
         }
 
-        function  apresentarRegistros(opcao) {
+        function apresentarRegistros(opcao) {
             if(cadastrados.length == 0) {
                 alert("SEM CADASTRADOS");
                 inicio();
             } 
-             var mensaegem = 'LISTA DE PESSOAS:\n'
+
+            var found = 0;
+
+            var mensaegem = 'LISTA DE PESSOAS:\n'
             switch(opcao) {
                 case 1:
                     for(let i = 0; i < cadastrados.length; i++) {
                         if(cadastrados[i].altura <= 1.5) {
                             mensaegem += `Nome: ${cadastrados[i].nome} | Altura: ${cadastrados[i].altura}\n`
-
+                            found++;
                         }
                     }
                     break;
@@ -79,19 +81,27 @@
                     for(let i = 0; i < cadastrados.length; i++) {
                         if(cadastrados[i].altura >= 1.5) {
                             mensaegem += `Nome: ${cadastrados[i].nome} | Altura: ${cadastrados[i].altura}\n`
-
+                            found++;
                         }
                     }
+
                     break;
                 case 3:
                     for(let i = 0; i < cadastrados.length; i++) {
                         if(cadastrados[i].altura >= 1.5 &&  cadastrados[i].altura <= 2.0) {
                             mensaegem += `Nome: ${cadastrados[i].nome} | Altura: ${cadastrados[i].altura}\n`
+                            found++;
                         }
                     }
                     break;        
                 default:
-                    mensaegem = "Opção invalida"
+                    alert("Opção invalida");
+                    break;
+            }
+            if(found > 0) {
+                alert(mensaegem);
+            } else {
+                alert("LISTA DE PESSOAS DO CADASTRADO NÃO TEM ESSA ALTURA");
             }
             inicio();
         }
