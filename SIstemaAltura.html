@@ -89,6 +89,16 @@
                 default:
                     mensaegem = "Opção invalida"
             }
+            inicio();
+        }
+
+        function media() {
+            var soma = 0;
+            for(let i = 0; i < cadastrados.length; i++) {
+                soma += cadastrados[i].altura;
+            }
+            var media = soma / cadastrados.length;
+            alert(`A média de altura é: ${media}`);
         }
 
         function sair() {
