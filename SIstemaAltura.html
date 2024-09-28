@@ -17,6 +17,27 @@
         e) Apresentar a média extraída de todas as alturas armazenadas.
         f) Sair do programa.
         */
+
+        var cadastrados = [];
+
+        function inicio() {
+            var escolha = parseInt(prompt("AGENDA\n1) Cadastro\n2) Listar pessoas menores ou iguais a 1.5m\n3) Listar pessoas maiores que 1.5m\n4) Listar pessoas maiores que 1.5m e menores que 2.0m\n5) Média das alturas\n 6) Sair"));
+
+
+            switch(escolha) {
+                case 1: cadastro(); break;
+                case 2: apresentarRegirstros(tamanho); break;
+                case 3: apresentarRegirstros(tamanho); break;
+                case 4: apresentarRegirstros(tamanho); break;
+                case 5: media(); break;
+                case 6: sair(); break;
+
+                default:  alert("Opção inválida");
+            }
+            inicio();
+        }
+
+        inicio()
     </script>
 </head>
 <body>
