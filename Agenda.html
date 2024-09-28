@@ -41,7 +41,8 @@
                     var telefone = prompt("Digite o telefone a ser pesquisado: ");
                     if(contatos.some(contato => contato.telefone == telefone)) {
                         var contato = contatos.find(contato => contato.telefone == telefone);
-                        alert("CONTATO ENCONTRADO\n Nome: " + contato.nome + "\nTelefone: " + contato.telefone);
+                        alert("CONTATO ENCONTRADO\n Nome: " + contato.nome + "\nTelefone: " + contato.telefone + "\nEndereço:  " + contato.endereco);
+
                     }
                     break;
                 case 3: 
@@ -70,7 +71,8 @@
             alert("LISTA DE CONTATOS REORGANIZADA");
             var mensaegem = 'LISTA CONTATOS:\n'
             for(let i = 0; i < contatos.length; i++) {
-                mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + "\nTelefone:  " + contatos[i].telefone + "\n";
+                mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + " | Telefone:  " + contatos[i].telefone + "| Endereco:  " + contatos[i].endereco + "\n";
+
             }
             alert(mensaegem);
 
@@ -80,7 +82,7 @@
         function listar() {
             var mensaegem = 'LISTA CONTATOS:\n'
             for(let i = 0; i < contatos.length; i++) {
-                mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + "\nTelefone:  " + contatos[i].telefone + "\n";
+                mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + "| Telefone:  " + contatos[i].telefone + "| Endereco:  " + contatos[i].endereco + "\n";
             }
             alert(mensaegem);
 
@@ -90,7 +92,7 @@
         function sair() {
             var sair = confirm ("Deseja sair da agenda?");
             if(sair) {
-                window.location.href = "Agenda.html";
+                window.close();
             }
         }
 
