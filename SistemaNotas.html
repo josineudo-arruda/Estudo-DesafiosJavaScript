@@ -15,7 +15,7 @@
         var alunos = [];
 
         function inicio() {
-            var escolha = parseInt(prompt("SISTEMA DE NOTAS\n 1) Cadastro de Alunos\n 2) Pesquisar Alunos 3) Listar Alunos 4) Sair"));
+            var escolha = parseInt(prompt("SISTEMA DE NOTAS\n 1) Cadastro de Alunos\n 2) Pesquisar Alunos\n 3) Listar Alunos\n 4) Sair"));
 
             switch(escolha) {
                 case 1: cadastrarAluno(); break;
@@ -59,6 +59,11 @@
         }
 
         function pesquisarAluno() {
+            if(alunos == 0) {
+                alert("SEM ALUNOS CADASTRADOS");
+                inicio();
+            }
+
             var nome = prompt("Digite o nome do aluno a ser pesquisado: ");
             var aluno = alunos.find(aluno => aluno.nome === nome);
             if(aluno) {
@@ -68,6 +73,11 @@
         }
 
         function listarAlunos() {
+            if(alunos == 0) {
+                alert("SEM ALUNOS CADASTRADOS");
+                inicio();
+            }
+            
             var mensaegem = 'LISTA DE ALUNOS:\n'
             for (let i = 0; i < alunos.length; i++) {
                 mensaegem +=  `Nome: ${alunos[i].nome}\nMédia:  ${alunos[i].media}\nSituação: ${alunos[i].situacao}\n`
@@ -83,7 +93,8 @@
             }
         }
 
-
+        
+        inicio();
     </script>
 </head>
 <body>
