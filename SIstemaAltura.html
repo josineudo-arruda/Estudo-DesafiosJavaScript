@@ -37,6 +37,29 @@
             inicio();
         }
 
+        function cadastro() {
+            var numCadastros = parseInt(prompt("Insira a quantidade de cadastros:")); 
+            if(numCadastros <= 0 || isNaN(numCadastros)) {
+                alert("ERRO: Integer incorreto, tente novamente.");
+                cadastro();
+            }
+
+            for(let i = 0; i < numCadastros; i++) {
+                var nome  = prompt("Digite o nome: ");
+                var altura =  parseFloat(prompt("Digite sua altura: "));
+
+                if(nome && isNaN(altura)) {
+                    var cadastro = {nome:nome,altura:altura};
+                    cadastrados.push(cadastro);
+                } else {
+                    alert("ERRO: String incorreto, tente novamente.");
+                    i--;
+                }
+            }
+            inicio();
+        }
+
+
         function sair() {
             var  resposta = confirm("Deseja sair do sistema de altura?");
             if (resposta) {
