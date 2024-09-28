@@ -37,7 +37,32 @@
             inicio();
         }
 
+        function cadastro() {
+            var numCadastros = parseInt(prompt("Insira a quantidade de cadastros:"));
+            for(let i = 0; i < numCadastros; i++) {
+                var nome  = prompt("Digite o nome: ");
+                var endereco =  prompt("Digite o endereço: ");
+                var telefone  = prompt("Digite o telefone: ");
+                
+                var contato = {nome:nome,endereco:endereco,telefone:telefone};
+                contatos.push(contato);
+            }
+            inicio();
+        }
+
+        function classificar() {
+
+            inicio();
+        }
+
+        function listar() {
+
+            inicio();
+        }
+
         
+
+        inicio()
     </script>
 </head>
 <body>
