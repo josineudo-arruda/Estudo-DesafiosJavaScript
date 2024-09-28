@@ -20,7 +20,7 @@
         var funcionarios = [];
 
         function inicio() {
-            var escolha = parseInt(prompt("FUNCIONÁRIOS\n1) Cadastro\n2) Listar empregados com salário acima de R$1.000,00\n3) Listar empregados com salário abaixo de R$1.000,00\n4) Listar empregados com salário igual a R$1.000,00\n) Sair"));
+            var escolha = parseInt(prompt("FUNCIONÁRIOS\n1) Cadastro\n2) Listar empregados com salário acima de R$1.000,00\n3) Listar empregados com salário abaixo de R$1.000,00\n4) Listar empregados com salário igual a R$1.000,00\n5) Sair"));
 
 
             switch(escolha) {
@@ -43,10 +43,11 @@
             }
 
             for(let i = 0; i < numCadastros; i++) {
-                var matricula  = parseInt(prompt("Digite a matricula: "));
+                var matricula  = parseInt(prompt("Digite a matricula (números): "));
                 var salario =  parseFloat(prompt("Digite o salário: "));
 
-                if(salario <= 0) {
+                if(salario <= 0 || isNaN(matricula) || isNaN(salario)) {
+
                     alert("ERRO: Float incorreto, tente novamente.");
                     i--;
                 } else {
@@ -58,7 +59,8 @@
         }
 
         function listarEmpregados(opcao) {
-            // organize pela matricula a lista
+            funcionarios.sort(function(a, b) {return a.matricula - b.matricula});
+
             if(funcionarios.length == 0) {
                 alert("SEM funcionarios");
                 inicio();
@@ -70,7 +72,7 @@
             switch(opcao) {
                 case 1:
                     for(let i = 0; i < funcionarios.length; i++) {
-                        if(funcionarios[i].salario >= 1000.00) {
+                        if(funcionarios[i].salario > 1000.00) {
                             mensaegem += `Matricula: ${funcionarios[i].matricula} | Salário: ${funcionarios[i].salario}\n`
                             found++;
                         }
@@ -78,7 +80,7 @@
                     break;
                 case 2:
                     for(let i = 0; i < funcionarios.length; i++) {
-                        if(funcionarios[i].salario <= 1000.00) {
+                        if(funcionarios[i].salario < 1000.00) {
 
                             mensaegem += `Matricula: ${funcionarios[i].matricula} | Salário: ${funcionarios[i].salario}\n`
                             found++;
