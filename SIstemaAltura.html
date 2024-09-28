@@ -21,7 +21,7 @@
         var cadastrados = [];
 
         function inicio() {
-            var escolha = parseInt(prompt("AGENDA\n1) Cadastro\n2) Listar pessoas menores ou iguais a 1.5m\n3) Listar pessoas maiores que 1.5m\n4) Listar pessoas maiores que 1.5m e menores que 2.0m\n5) Média das alturas\n 6) Sair"));
+            var escolha = parseInt(prompt("AGENDA\n1) Cadastro\n2) Listar pessoas menores ou iguais a 1.5m\n3) Listar pessoas maiores que 1.5m\n4) Listar pessoas maiores que 1.5m e menores que 2.0m\n5) Média das alturas\n6) Sair"));
 
 
             switch(escolha) {
@@ -61,6 +61,10 @@
         }
 
         function  apresentarRegistros(opcao) {
+            if(cadastrados.length == 0) {
+                alert("SEM CADASTRADOS");
+                inicio();
+            } 
              var mensaegem = 'LISTA DE PESSOAS:\n'
             switch(opcao) {
                 case 1:
@@ -93,6 +97,11 @@
         }
 
         function media() {
+            if(cadastrados.length == 0) {
+                alert("SEM CADASTRADOS");
+                inicio();
+            } 
+
             var soma = 0;
             for(let i = 0; i < cadastrados.length; i++) {
                 soma += cadastrados[i].altura;
