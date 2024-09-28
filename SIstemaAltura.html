@@ -26,9 +26,9 @@
 
             switch(escolha) {
                 case 1: cadastro(); break;
-                case 2: apresentarRegirstros(tamanho); break;
-                case 3: apresentarRegirstros(tamanho); break;
-                case 4: apresentarRegirstros(tamanho); break;
+                case 2: apresentarRegistros(1); break;
+                case 3: apresentarRegistros(2); break;
+                case 4: apresentarRegistros(3); break;
                 case 5: media(); break;
                 case 6: sair(); break;
 
@@ -48,7 +48,8 @@
                 var nome  = prompt("Digite o nome: ");
                 var altura =  parseFloat(prompt("Digite sua altura: "));
 
-                if(nome && isNaN(altura)) {
+                if(nome && isNaN(altura) || altura <= 0) {
+
                     var cadastro = {nome:nome,altura:altura};
                     cadastrados.push(cadastro);
                 } else {
@@ -59,6 +60,36 @@
             inicio();
         }
 
+        function  apresentarRegistros(opcao) {
+             var mensaegem = 'LISTA DE PESSOAS:\n'
+            switch(opcao) {
+                case 1:
+                    for(let i = 0; i < cadastrados.length; i++) {
+                        if(cadastrados[i].altura <= 1.5) {
+                            mensaegem += `Nome: ${cadastrados[i].nome} | Altura: ${cadastrados[i].altura}\n`
+
+                        }
+                    }
+                    break;
+                case 2:
+                    for(let i = 0; i < cadastrados.length; i++) {
+                        if(cadastrados[i].altura >= 1.5) {
+                            mensaegem += `Nome: ${cadastrados[i].nome} | Altura: ${cadastrados[i].altura}\n`
+
+                        }
+                    }
+                    break;
+                case 3:
+                    for(let i = 0; i < cadastrados.length; i++) {
+                        if(cadastrados[i].altura >= 1.5 &&  cadastrados[i].altura <= 2.0) {
+                            mensaegem += `Nome: ${cadastrados[i].nome} | Altura: ${cadastrados[i].altura}\n`
+                        }
+                    }
+                    break;        
+                default:
+                    mensaegem = "Opção invalida"
+            }
+        }
 
         function sair() {
             var  resposta = confirm("Deseja sair do sistema de altura?");
