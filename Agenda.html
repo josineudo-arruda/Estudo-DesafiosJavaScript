@@ -66,6 +66,13 @@
         }
 
         function classificar() {
+            contatos.sort((a, b) => a.nome.localeCompare(b.nome));
+            alert("Contatos classificados por nome");
+            var mensaegem = 'LISTA CONTATOS:\n'
+            for(let i = 0; i < contatos.length; i++) {
+                mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + "\nTelefone:  " + contatos[i].telefone + "\n";
+            }
+            alert(mensaegem);
 
             inicio();
         }
