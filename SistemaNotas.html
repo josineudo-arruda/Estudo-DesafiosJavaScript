@@ -28,22 +28,56 @@
         }
 
         function cadastrarAluno() {
-            var numCadastros = parseInt(prompt(""))
+            var numCadastros = parseInt(prompt("Insira a quantidade de alunos a serem cadastrados:"))
+            if(numCadastros <= 0 || isNaN(numCadastros)) {
+                alert("ERRO: Integer incorreto, tente novamente.");
+                cadastrarAluno();
+            }
+
+            for(let i = 0; i < numCadastros; i++) {
+                var nome  = prompt("Digite o nome: ");
+                var n1 =  parseFloat(prompt("Digite o endereço: "));
+                var n2 = parseFloat(prompt("Digite o endereço: "));
+                if(  isNaN(n1) || isNaN(n2) ) {
+                    alert("ERRO: Float incorreto, tente novamente.");
+                    cadastrarAluno();
+                }
+
+                var media = (n1 + n2) / 2;
+                media.toFixed(2);
+                var situacao = (media => 6.0 ?  "Aprovado" : "Reprovado");
+
+                if(nome && n1 && n2) {
+                    var aluno = {nome: nome, nota1: n1, nota2: n2, media: media, situacao: situacao};
+                    alunos.push(aluno);
+                } else {
+                    alert("ERRO: String incorreto, tente novamente.");
+                    cadastro();
+                }
+            }
+            inicio();
         }
 
         function pesquisarAluno() {
-
+            var nome = prompt("Digite o nome do aluno a ser pesquisado: ");
+            var aluno = alunos.find(aluno => aluno.nome === nome);
+            if(aluno) {
+                alert(`Nome: ${aluno.nome}\nNota 1: ${aluno.nota} \nNota 2: ${aluno.nota2}\nMédia:  ${aluno.media}\nSituação: ${aluno.situacao}`);
+            }
         }
 
         function listarAlunos() {
-
+            var mensaegem = 'LISTA DE ALUNOS:\n'
+            for (let i = 0; i < alunos.length; i++) {
+                mensaegem +=  `Nome: ${alunos[i].nome}\nMédia:  ${alunos[i].media}\nSituação: ${alunos[i].situacao}\n`
+            }
         }
 
 
         function sair() {
             var  resposta = confirm("Deseja sair do sistema de notas?");
             if (resposta) {
-                window.close();
+                alert("Obrigado por usar o sistema de notas!");
             }
         }
 

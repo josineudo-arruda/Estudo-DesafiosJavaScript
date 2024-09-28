@@ -65,7 +65,7 @@
                     contatos.push(contato);
                 } else {
                     alert("ERRO: String incorreto, tente novamente.");
-                    cadastro();
+                    i--;
                 }
             }
             inicio();
@@ -97,7 +97,7 @@
         function sair() {
             var sair = confirm ("Deseja sair da agenda?");
             if(sair) {
-                window.close();
+                alert("Obrigado por usar a agenda!");
             }
         }
 
