@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <script>
+        var contatos = [];
+
+        function inicio() {
+// a) Cadastrar os 10 registros.
+// b) Pesquisar um dos 10 registros de cada vez pelo campo nome (usar o método seqüencial).
+// c) Classificar por ordem de nome os registros cadastrados.
+// d) Apresentar todos os registros.
+// e) Sair do programa de cadastro.
+            var escolha = parseInt(prompt("AGENDA\n1) Cadastro\n2) Pesquisar\n3)  Classificar\n4) Listar\n5) Sair"));
+
+            switch(escolha) {
+                case 1: cadastro(); break;
+                case 2: pesquisar(); break;
+                case 3: classificar(); break;
+                case 4: listar(); break;
+                case 5: sair(); break;
+                default:  alert("Opção inválida");
+            }
+            inicio();
+        }
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
