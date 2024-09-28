@@ -22,6 +22,11 @@
         }
 
         function pesquisar() {
+            if(contatos == 0) {
+                alert("SEM CONTATOS CADASTRADOS");
+                inicio();
+            } 
+
             var opcao = parseInt(prompt("Escollha sua opção:\n1) Pesquisar por nome\n2) Pesquisar por telefone \n3) Voltar"));
 
             switch(opcao) {
@@ -72,6 +77,11 @@
         }
 
         function classificar() {
+            if(contatos == 0) {
+                alert("SEM CONTATOS CADASTRADOS");
+                inicio();
+            } 
+
             contatos.sort((a, b) => a.nome.localeCompare(b.nome));
             alert("LISTA DE CONTATOS REORGANIZADA");
             var mensaegem = 'LISTA CONTATOS:\n'
@@ -85,6 +95,11 @@
         }
 
         function listar() {
+            if(contatos == 0) {
+                alert("SEM CONTATOS CADASTRADOS");
+                inicio();
+            } 
+
             var mensaegem = 'LISTA CONTATOS:\n'
             for(let i = 0; i < contatos.length; i++) {
                 mensaegem +=  (i+1) + ") Nome: " + contatos[i].nome + "| Telefone:  " + contatos[i].telefone + "| Endereco:  " + contatos[i].endereco + "\n";
