@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+    <script>
+        /*
+        a) Cadastrar os 20 empregados e classificar os registros por número de matrícula.
+        b) Pesquisar um determinado empregado pelo número de matrícula.
+        c) Apresentar de forma ordenada (por matrícula) os registros dos empregados que recebem salários
+        acima de R$1.000,00.
+        d) Apresentar de forma ordenada (por matrícula) os registros dos empregados que recebem salários
+        abaixo de R$1.000,00.
+        e) Apresentar de forma ordenada (por matrícula) os registros dos empregados que recebem salários
+        iguais a R$1.000,00.
+        f) Sair do programa.
+        */
+
+        var funcionarios = [];
+
+        function inicio() {
+            var escolha = parseInt(prompt("FUNCIONÁRIOS\n1) Cadastro\n2) Listar empregados com salário acima de R$1.000,00\n3) Listar empregados com salário abaixo de R$1.000,00\n4) Listar empregados com salário igual a R$1.000,00\n) Sair"));
+
+
+            switch(escolha) {
+                case 1: cadastro(); break;
+                case 2: listarEmpregados(1); break;
+                case 3: listarEmpregados(2); break;
+                case 4: listarEmpregados(3); break;
+                case 5: sair(); break;
+
+                default:  alert("Opção inválida");
+            }
+            inicio();
+        }
+
+        function cadastro() {
+            var numCadastros = parseInt(prompt("Insira a quantidade de cadastros:")); 
+            if(numCadastros <= 0 || isNaN(numCadastros)) {
+                alert("ERRO: Integer incorreto, tente novamente.");
+                inicio();
+            }
+
+            for(let i = 0; i < numCadastros; i++) {
+                var matricula  = parseInt(prompt("Digite a matricula: "));
+                var salario =  parseFloat(prompt("Digite o salário: "));
+
+                if(salario <= 0) {
+                    alert("ERRO: Float incorreto, tente novamente.");
+                    i--;
+                } else {
+                    var cadastro = {matricula:matricula,salario:salario};
+                    funcionarios.push(cadastro);
+                }
+            }
+            inicio();
+        }
+
+        function listarEmpregados(opcao) {
+            // organize pela matricula a lista
+            if(funcionarios.length == 0) {
+                alert("SEM funcionarios");
+                inicio();
+            }
+
+            var found = 0;
+
+            var mensaegem = 'LISTA DE FUNCIONÁRIOS:\n'
+            switch(opcao) {
+                case 1:
+                    for(let i = 0; i < funcionarios.length; i++) {
+                        if(funcionarios[i].salario >= 1000.00) {
+                            mensaegem += `Matricula: ${funcionarios[i].matricula} | Salário: ${funcionarios[i].salario}\n`
+                            found++;
+                        }
+                    }
+                    break;
+                case 2:
+                    for(let i = 0; i < funcionarios.length; i++) {
+                        if(funcionarios[i].salario <= 1000.00) {
+
+                            mensaegem += `Matricula: ${funcionarios[i].matricula} | Salário: ${funcionarios[i].salario}\n`
+                            found++;
+                        }
+                    }
+
+                    break;
+                case 3:
+                    for(let i = 0; i < funcionarios.length; i++) {
+                        if(funcionarios[i].salario ==  1000.00) {
+                            mensaegem += `Matricula: ${funcionarios[i].matricula} | Salário: ${funcionarios[i].salario}\n`
+                            found++;
+                        }
+                    }
+                    break;        
+                default:
+                    alert("Opção invalida");
+                    break;
+            }
+            if(found > 0) {
+                alert(mensaegem);
+            } else {
+                alert("LISTA DE FUNCIONÁRIOS NÃO TEM ESSE SALÁRIO");
+            }
+            inicio();
+        }
+
+        function sair() {
+            var  resposta = confirm("Deseja sair do sistema de salário?");
+            if (resposta) {
+                alert("Obrigado por usar o sistema de salário!");
+            }
+        }
+
+        inicio()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
