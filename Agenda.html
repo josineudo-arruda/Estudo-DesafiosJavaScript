@@ -27,12 +27,27 @@
         }
 
         function pesquisar() {
-            // faça a pesquisa para os 3 em um switch case
             var opcao = parseInt(prompt("Escollha sua opção:\n1)  Pesquisar por nome\n2) Pesquisar por telefone \n3) Voltar"));
 
-            var nome = prompt("Digite o nome a ser pesquisado: ");
-            if(contatos.some(contato => contato.nome == nome)) {
-                alert("Contato Encontrado")
+            switch(opcao) {
+                case 1: 
+                    var nome = prompt("Digite o nome a ser pesquisado: ");
+                    if(contatos.some(contato => contato.nome == nome)) {
+                        var contato = contatos.find(contato => contato.nome == nome);
+                        alert("CONTATO ENCONTRADO\n Nome: " + contato.nome + "\nTelefone: " + contato.telefone);
+                    }
+                    break;
+                case 2:
+                    var telefone = prompt("Digite o telefone a ser pesquisado: ");
+                    if(contatos.some(contato => contato.telefone == telefone)) {
+                        var contato = contatos.find(contato => contato.telefone == telefone);
+                        alert("CONTATO ENCONTRADO\n Nome: " + contato.nome + "\nTelefone: " + contato.telefone);
+                    }
+                    break;
+                case 3: 
+                    inicio();
+                    break;
+                default:  alert("Opção inválida");
             }
             inicio();
         }
