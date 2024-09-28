@@ -26,6 +26,17 @@
             inicio();
         }
 
+        function pesquisar() {
+            // faça a pesquisa para os 3 em um switch case
+            var opcao = parseInt(prompt("Escollha sua opção:\n1)  Pesquisar por nome\n2) Pesquisar por telefone \n3) Voltar"));
+
+            var nome = prompt("Digite o nome a ser pesquisado: ");
+            if(contatos.some(contato => contato.nome == nome)) {
+                alert("Contato Encontrado")
+            }
+            inicio();
+        }
+
         
     </script>
 </head>
