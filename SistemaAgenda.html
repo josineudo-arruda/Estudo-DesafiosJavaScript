@@ -49,14 +49,24 @@
         }
 
         function cadastro() {
-            var numCadastros = parseInt(prompt("Insira a quantidade de cadastros:"));
+            var numCadastros = parseInt(prompt("Insira a quantidade de cadastros:")); 
+            if(numCadastros <= 0 || isNaN(numCadastros)) {
+                alert("ERRO: Integer incorreto, tente novamente.");
+                cadastro();
+            }
+
             for(let i = 0; i < numCadastros; i++) {
                 var nome  = prompt("Digite o nome: ");
                 var endereco =  prompt("Digite o endereço: ");
                 var telefone  = prompt("Digite o telefone: ");
-                
-                var contato = {nome:nome,endereco:endereco,telefone:telefone};
-                contatos.push(contato);
+
+                if(nome && endereco && telefone) {
+                    var contato = {nome:nome,endereco:endereco,telefone:telefone};
+                    contatos.push(contato);
+                } else {
+                    alert("ERRO: String incorreto, tente novamente.");
+                    cadastro();
+                }
             }
             inicio();
         }
